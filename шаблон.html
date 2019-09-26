@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head><title>шаблон</title>
+<style>
+div{
+display: inline-block;}
+</style>
+</head>
+<body>
+
+	<div style="width: 300px;">
+		<input type="textarea" id="field-1" style="width: 200px;" placeholder="Input static field-1" >
+		<hr/>
+		<input type="textarea" id="field-2" style="width: 200px;" placeholder="Input static field-2">
+		<hr/>
+		<input type="textarea" id='h' style="width: 200px;" placeholder="Input dynamic field">
+		<button onclick="textTransform('field-1', 'field-2', 'h')" onblur="document.getElementById('h').value ='';">go</button>
+	</div>
+	<div style="width: 300px;">
+		<input type="textarea" id="field12" style="width: 200px;" placeholder="Input static field-1" >
+		<hr/>
+		<input type="textarea" id="field22" style="width: 200px;" placeholder="Input static field-2">
+		<hr/>
+		<input type="textarea" id='h2' style="width: 200px;" placeholder="Input dynamic field">
+		<button onclick="textTransform('field12' , 'field22', 'h2' )" onblur="document.getElementById('h2').value ='';">go</button>
+	</div>
+
+<script>
+
+
+	
+function textTransform(f1,f2,d1){
+	
+	
+	
+	/* This will create answer-element<p> */
+	var elem = document.createElement('p');
+	document.body.appendChild(elem);
+	var getId =d1+'fin';
+	elem.id = getId;
+	elem = document.getElementById(getId);
+	elem.style ="max-width: 700px; border: 2px dashed blue;";
+
+	
+	/* Transform text */
+	var string = document.getElementById(d1).value;	
+	var fieldOne = document.getElementById(f1).value;
+	var fieldTwo = document.getElementById(f2).value;
+	elem.innerHTML = fieldOne +' ' + string +' '+ fieldTwo;
+}
+
+
+</script>
+</body></html>
